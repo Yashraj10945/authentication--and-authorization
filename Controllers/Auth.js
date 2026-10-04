@@ -89,7 +89,7 @@ exports.login=async (req,res)=>{
           httpOnly:true,
         }
 
-        res.cookie("token",token,options).status(200).json({
+        res.cookie("yashraj",token,options).status(200).json({
           success:true,
           token,
           user,
@@ -105,6 +105,11 @@ exports.login=async (req,res)=>{
         }
     }
     catch(error){
+      console.log(error);
+      return res.status(500).json({
+        success:false,
+        message:'login failure'
+      })
 
     }
     

@@ -18,6 +18,37 @@ const userSchema = new mongoose.Schema({
     role:{
    type:String,
    enum:["Admin","Student","Visitor"]
-    }
-});
+    },
+    mobile: {
+      type: String,
+      trim: true,
+    },
+
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+
+    otp: {
+      type: String,
+    },
+
+    otpExpiry: {
+      type: Date,
+    },
+
+    profileImage: {
+      secure_url: {
+        type: String,
+      },
+      public_id: {
+        type: String,
+      },
+    },
+  },
+  {
+    timestamps: true,
+  }
+
+);
 module.exports=mongoose.model("user",userSchema);
